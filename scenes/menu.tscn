@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://beclup4fvlrwn"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/menu.gd" id="1_48dlg"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_vpnfb"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_48dlg")
+script = ExtResource("1_vpnfb")
 
 [node name="ContentMargin" type="MarginContainer" parent="."]
 layout_mode = 1

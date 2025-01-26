@@ -49,7 +49,7 @@ func _ready() -> void:
 	dodge_cooldown_timer.timeout.connect(func(): can_dodge = true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	handle_gravity()
 	if can_move:
 		move_player()

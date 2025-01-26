@@ -1,15 +1,29 @@
-extends Node2D
+extends CharacterBody2D
 
-const SPEED = 60
-var direction = 1
+var speed: float = -100.0
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var facing_right: bool = false
 
-@onready var ray_cast_right: RayCast2D = $RayCastRight
-@onready var ray_cast_left: RayCast2D = $RayCastLeft
+# Raycast for ground detection
+@onready var ground_ray: RayCast2D = $GroundRay
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
-func _process(delta: float) -> void:
-	if ray_cast_right.is_colliding():
-		direction = -1
-	if ray_cast_left.is_colliding():
-		direction = 1
-	
-	position.x += direction * SPEED * delta
+func _physics_process(delta: float):
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	if !ground_ray.is_colliding() && is_on_floor():
+		flip()
+
+	velocity.x = speed
+	move_and_slide()
+
+func flip():
+	facing_right = !facing_right
+
+	scale.x = abs(scale.x) * -1
+
+	if facing_right:
+		speed = abs(speed)
+	else:
+		speed = abs(speed) * -1

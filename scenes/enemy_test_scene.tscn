@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wr7e5b2s7osa"]
+[gd_scene load_steps=3 format=3 uid="uid://wr7e5b2s7osa"]
 
 [ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="1_gpel5"]
+[ext_resource type="PackedScene" uid="uid://ea2ailovaga3" path="res://scenes/player.tscn" id="2_yaqm0"]
 
 [node name="EnemyTestScene" type="Node2D"]
 
@@ -8,7 +9,14 @@
 position = Vector2(547, 454)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(99, -18)
 polygon = PackedVector2Array(-90, 672, -1, 804, 459, 880, 1117, 809, 1156, 759, 1147, 696, 1154, 642, 994, 540, 584, 556, 184, 561, 16, 556, -66, 566)
+
+[node name="Player" parent="." instance=ExtResource("2_yaqm0")]
+position = Vector2(309, 412)
+scale = Vector2(10, 10)
+jump_power = 600

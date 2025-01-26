@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://xi03ediouobe"]
+[gd_scene load_steps=28 format=3 uid="uid://ea2ailovaga3"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_2j2h2"]
 [ext_resource type="Texture2D" uid="uid://b8cylto1sx5vi" path="res://assets/temp/player.png" id="2_ctwvi"]
@@ -165,6 +165,7 @@ height = 14.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(0, -3)
+collision_mask = 6
 script = ExtResource("1_2j2h2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -182,7 +183,6 @@ shape = SubResource("CapsuleShape2D_wxhf4")
 script = ExtResource("4_d7m4s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.2, 3.2)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_ggdrn")

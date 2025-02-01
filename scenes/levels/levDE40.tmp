@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfxrbngmwot6s"]
 
-[ext_resource type="PackedScene" uid="uid://bjib41royan6v" path="res://scenes/robot.tscn" id="1_ubl5h"]
+[ext_resource type="PackedScene" uid="uid://dpsmi3t5f0es0" path="res://scenes/player.tscn" id="1_4c1j8"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_5ae06"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="3_u3e2s"]
 [ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="4_ipgkl"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="Robot" parent="." instance=ExtResource("1_ubl5h")]
+[node name="Player" parent="." instance=ExtResource("1_4c1j8")]
+collision_mask = 14
 
 [node name="Obstacle1" parent="." instance=ExtResource("2_5ae06")]
 position = Vector2(1, 40)

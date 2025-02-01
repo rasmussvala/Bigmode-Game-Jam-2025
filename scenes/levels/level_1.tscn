@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfxrbngmwot6s"]
 
-[ext_resource type="PackedScene" uid="uid://bjib41royan6v" path="res://scenes/robot.tscn" id="1_ubl5h"]
+[ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_ubl5h"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_5ae06"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="3_u3e2s"]
 [ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="4_ipgkl"]

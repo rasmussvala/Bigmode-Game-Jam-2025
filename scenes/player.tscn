@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjib41royan6v"]
+[gd_scene load_steps=13 format=3 uid="uid://cb3vh0dhrgdyp"]
 
-[ext_resource type="Script" path="res://scripts/player/robot.gd" id="1_2ip46"]
 [ext_resource type="Texture2D" uid="uid://lg878v1ssw5j" path="res://assets/lamp.png" id="1_jt00b"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_yadf0"]
 [ext_resource type="Script" path="res://scripts/common/components/HealthComponent.gd" id="2_aaf7l"]
 [ext_resource type="Script" path="res://scripts/common/components/hurtbox.gd" id="3_i3m8j"]
 
@@ -318,11 +318,11 @@ _data = {
 "runAnimationRight": SubResource("Animation_26u4b")
 }
 
-[node name="Robot" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -4)
 scale = Vector2(0.025, 0.025)
 collision_mask = 14
-script = ExtResource("1_2ip46")
+script = ExtResource("1_yadf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

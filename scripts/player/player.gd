@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Robot
+class_name Player
 
 @export_category("Movement Settings")
 @export var move_speed: float = 100

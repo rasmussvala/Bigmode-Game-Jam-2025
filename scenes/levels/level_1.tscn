@@ -23,14 +23,22 @@ polygon = PackedVector2Array(-95, -95, -141, -95, -166, 84, -155, 183, 100, 204,
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 
-[node name="Spikes" parent="." instance=ExtResource("4_ipgkl")]
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spikes1" parent="Spikes" instance=ExtResource("4_ipgkl")]
 position = Vector2(-68, 179)
 
-[node name="Spikes2" parent="." instance=ExtResource("4_ipgkl")]
+[node name="Spikes2" parent="Spikes" instance=ExtResource("4_ipgkl")]
 position = Vector2(-7, 180)
 
-[node name="Spikes3" parent="." instance=ExtResource("4_ipgkl")]
+[node name="Spikes3" parent="Spikes" instance=ExtResource("4_ipgkl")]
 position = Vector2(52, 182)
 
-[node name="Spikes4" parent="." instance=ExtResource("4_ipgkl")]
+[node name="Spikes4" parent="Spikes" instance=ExtResource("4_ipgkl")]
 position = Vector2(92, 183)
+
+[node name="Spikes5" parent="Spikes" instance=ExtResource("4_ipgkl")]
+position = Vector2(201, 151)
+
+[node name="Spikes6" parent="Spikes" instance=ExtResource("4_ipgkl")]
+position = Vector2(407, 150)

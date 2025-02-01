@@ -93,12 +93,8 @@ func start_dodge() -> void:
 	velocity = dodge_dir * dodge_speed
 		
 	dodge_timer.start()
-	set_collision_layer_value(1, false)
-	set_collision_mask_value(2, false)
 	animated_sprite.play("jumpAnimation")
-	hurtbox.is_invulnerable = true
-	#play_dodge_sound()
-
+	
 func play_dodge_sound() -> void:
 	var random_number = randi_range(1, 3)
 	var sound: AudioStream = load("res://player/assets/sounds/dodge_" + str(random_number) + ".ogg")
@@ -114,9 +110,6 @@ func play_dodge_sound() -> void:
 
 func _on_dodge_ended() -> void:
 	in_dodge = false
-	hurtbox.is_invulnerable = false
-	set_collision_layer_value(1, true)
-	set_collision_mask_value(2, true)
 	dodge_cooldown_timer.start()
 
 func handle_gravity() -> void:

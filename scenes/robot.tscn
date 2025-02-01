@@ -321,6 +321,7 @@ _data = {
 [node name="Robot" type="CharacterBody2D"]
 position = Vector2(0, -4)
 scale = Vector2(0.025, 0.025)
+collision_mask = 14
 script = ExtResource("1_2ip46")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -468,7 +469,6 @@ script = ExtResource("3_i3m8j")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-16.4706, -2.35294)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bd58c")
 debug_color = Color(0.807843, 0, 0.109804, 0.764706)
 

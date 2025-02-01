@@ -9,7 +9,7 @@ class_name Player
 @export var dodge_duration: float = 0.4
 @export var dodge_cooldown: float = 0.5
 @export_subgroup("Jump")
-@export var gravity = 10
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var jump_power = 300
 
 @onready var animated_sprite := $animationPlayer
@@ -51,11 +51,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
-	handle_gravity()
 	if can_move:
 		move_player(delta)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	handle_gravity(delta)
 	if can_move:
 		move_and_slide()
 
@@ -65,7 +65,6 @@ func _unhandled_input(event):
 		return
 	if is_on_floor() and event.is_action_pressed("jump"):
 		velocity.y = -jump_power;
-		
 
 	if can_dodge and event.is_action_pressed("dodge"):
 		start_dodge()
@@ -74,7 +73,7 @@ func _unhandled_input(event):
 func move_player(delta : float) -> void:
 	if not in_dodge:
 		var horizontal_input = Input.get_axis("move_left", "move_right")
-		var l_acceleration = 10 if is_on_floor() else 1
+		var l_acceleration = 10 if is_on_floor() else 5
 		velocity.x = lerp(velocity.x, horizontal_input * move_speed, l_acceleration * delta)
 		
 		# Check if input is actively being pressed
@@ -86,14 +85,17 @@ func move_player(delta : float) -> void:
 			animated_sprite.play("idleAnimation")  # Play idle animation when no input
 
 func start_dodge() -> void:
-	can_dodge = false
-	in_dodge = true
 	var dodge_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	print(dodge_dir)
-	velocity = dodge_dir * dodge_speed
-		
-	dodge_timer.start()
-	animated_sprite.play("jumpAnimation")
+	if not dodge_dir.is_equal_approx(Vector2.ZERO):
+		can_dodge = false
+		in_dodge = true
+		velocity = dodge_dir * dodge_speed
+		if velocity.y < 0:
+			velocity.y *= 1.2
+		print(velocity)
+			
+		dodge_timer.start()
+		animated_sprite.play("jumpAnimation")
 	
 func play_dodge_sound() -> void:
 	var random_number = randi_range(1, 3)
@@ -112,12 +114,10 @@ func _on_dodge_ended() -> void:
 	in_dodge = false
 	dodge_cooldown_timer.start()
 
-func handle_gravity() -> void:
+func handle_gravity(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += gravity
+		velocity.y += gravity * delta
 		is_falling = velocity.y > 0
-	else:
-		velocity.y = gravity
 
 func _on_health_component_health_changed(amount: Variant) -> void:
 	if amount > 0:

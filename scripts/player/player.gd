@@ -5,7 +5,7 @@ class_name Player
 @export_category("Movement Settings")
 @export var move_speed: float = 100
 @export_subgroup("Dodge")
-@export var dodge_speed: float = 200
+@export var dodge_speed: float = 300
 @export var dodge_duration: float = 0.4
 @export var dodge_cooldown: float = 0.5
 @export_subgroup("Jump")
@@ -49,10 +49,10 @@ func _ready() -> void:
 	dodge_cooldown_timer.timeout.connect(func(): can_dodge = true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta) -> void:
+func _process(delta) -> void:
 	handle_gravity()
 	if can_move:
-		move_player()
+		move_player(delta)
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -69,19 +69,24 @@ func _unhandled_input(event):
 		start_dodge()
 
 
-func move_player() -> void:
-	if in_dodge:
-		velocity = velocity.normalized() * dodge_speed
-	else:
+func move_player(delta : float) -> void:
+	if not in_dodge:
 		var horizontal_input = (
 			Input.get_axis("move_left", "move_right")
 		)
-		velocity.x = horizontal_input * move_speed
+		var l_acceleration = 10 if is_on_floor() else 1
+		velocity.x = lerp(velocity.x, horizontal_input * move_speed, l_acceleration * delta)
+		if abs(velocity.x) < 0.1:
+			velocity.x = 0
 
 
 func start_dodge() -> void:
 	can_dodge = false
 	in_dodge = true
+	var dodge_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	print(dodge_dir)
+	velocity = dodge_dir * dodge_speed
+		
 	dodge_timer.start()
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(2, false)
@@ -112,7 +117,9 @@ func _on_dodge_ended() -> void:
 func handle_gravity() -> void:
 	if not is_on_floor():
 		velocity.y += gravity
-	is_falling = velocity.y > 0 and not is_on_floor()
+		is_falling = velocity.y > 0
+	else:
+		velocity.y = gravity
 
 func _on_health_component_health_changed(amount: Variant) -> void:
 	if amount > 0:

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxvcrq5ci7ivx"
-path="res://.godot/imported/water-enemy.png-e23430ee3b949d11aedf3f35b5fffd47.ctex"
+path="res://.godot/imported/enemy.png-63f114c7bb3f2105c232c34f647cbc2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/water-enemy.png"
-dest_files=["res://.godot/imported/water-enemy.png-e23430ee3b949d11aedf3f35b5fffd47.ctex"]
+source_file="res://assets/enemy.png"
+dest_files=["res://.godot/imported/enemy.png-63f114c7bb3f2105c232c34f647cbc2d.ctex"]
 
 [params]
 

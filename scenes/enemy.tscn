@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://kitx24ssv88o"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_haa7n"]
-[ext_resource type="Texture2D" uid="uid://176j5603seo6" path="res://assets/icon.svg" id="1_ypuru"]
+[ext_resource type="Texture2D" uid="uid://bxvcrq5ci7ivx" path="res://assets/enemy.png" id="2_qoaiq"]
 [ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="3_i44bv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl2n1"]
-size = Vector2(129, 128)
+size = Vector2(155, 124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np4lp"]
-size = Vector2(140, 90)
+size = Vector2(170, 90)
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -17,21 +17,24 @@ collision_mask = 3
 script = ExtResource("1_haa7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(12.5, -1.99999)
 shape = SubResource("RectangleShape2D_bl2n1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ypuru")
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(7.5, -38)
+scale = Vector2(0.536111, 0.536111)
+texture = ExtResource("2_qoaiq")
 
-[node name="GroundRay" type="RayCast2D" parent="."]
-position = Vector2(-73.28, 0)
-target_position = Vector2(0, 85)
-collision_mask = 2
-
-[node name="Killzone" parent="." instance=ExtResource("3_i44bv")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -25)
+[node name="Killzone" parent="CollisionShape2D" instance=ExtResource("3_i44bv")]
+position = Vector2(-12.5, 1.99999)
 scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Killzone"]
+position = Vector2(15, -25)
 shape = SubResource("RectangleShape2D_np4lp")
 debug_color = Color(0.984314, 0, 0, 0.419608)
+
+[node name="GroundRay" type="RayCast2D" parent="."]
+position = Vector2(92.09, 0)
+target_position = Vector2(0, 85)
+collision_mask = 2

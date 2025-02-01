@@ -3,18 +3,17 @@
 [ext_resource type="Script" path="res://scripts/next_level.gd" id="1_5p4jc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rvgg"]
-size = Vector2(40, 40)
 
 [node name="NextLevel" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_5p4jc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(1, 0.466667, 0, 1)
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.41732, 0.0412157, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2rvgg")

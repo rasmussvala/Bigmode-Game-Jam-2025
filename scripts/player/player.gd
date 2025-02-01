@@ -12,7 +12,7 @@ class_name Player
 @export var gravity = 10
 @export var jump_power = 300
 
-@onready var animated_sprite := $AnimatedSprite2D
+@onready var animated_sprite := $animationPlayer
 @onready var camera := $Camera2D
 @onready var hurtbox := $Hurtbox
 
@@ -26,6 +26,7 @@ var player_dead := false
 
 var can_move := true
 var is_falling: bool = false
+var is_jumping := false
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
@@ -64,6 +65,7 @@ func _unhandled_input(event):
 		return
 	if is_on_floor() and event.is_action_pressed("jump"):
 		velocity.y = -jump_power;
+		
 
 	if can_dodge and event.is_action_pressed("dodge"):
 		start_dodge()
@@ -71,14 +73,17 @@ func _unhandled_input(event):
 
 func move_player(delta : float) -> void:
 	if not in_dodge:
-		var horizontal_input = (
-			Input.get_axis("move_left", "move_right")
-		)
+		var horizontal_input = Input.get_axis("move_left", "move_right")
 		var l_acceleration = 10 if is_on_floor() else 1
 		velocity.x = lerp(velocity.x, horizontal_input * move_speed, l_acceleration * delta)
-		if abs(velocity.x) < 0.1:
-			velocity.x = 0
-
+		
+		# Check if input is actively being pressed
+		if Input.is_action_pressed("move_left"): 
+			animated_sprite.play("runAnimationLeft")  # Play run animation when moving
+		elif Input.is_action_pressed("move_right"):
+			animated_sprite.play("runAnimationRight")  # Play run animation when moving
+		else:
+			animated_sprite.play("idleAnimation")  # Play idle animation when no input
 
 func start_dodge() -> void:
 	can_dodge = false
@@ -88,9 +93,8 @@ func start_dodge() -> void:
 	velocity = dodge_dir * dodge_speed
 		
 	dodge_timer.start()
-	animated_sprite.play("roll_h")
-	play_dodge_sound()
-
+	animated_sprite.play("jumpAnimation")
+	
 func play_dodge_sound() -> void:
 	var random_number = randi_range(1, 3)
 	var sound: AudioStream = load("res://player/assets/sounds/dodge_" + str(random_number) + ".ogg")

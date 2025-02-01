@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: float = -100.0
+var speed: float = -20.0
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var facing_right: bool = false
 

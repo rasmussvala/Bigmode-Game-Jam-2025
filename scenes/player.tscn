@@ -166,7 +166,6 @@ radius = 5.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
-light_mask = 0
 position = Vector2(0, -3)
 script = ExtResource("1_2j2h2")
 

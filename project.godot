@@ -15,6 +15,13 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/extend_to_title=true
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/linepath2d/plugin.cfg")

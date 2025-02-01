@@ -7,7 +7,7 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="Robot" parent="." instance=ExtResource("1_ubl5h")]
+[node name="Player" parent="." instance=ExtResource("1_ubl5h")]
 
 [node name="Obstacle1" parent="." instance=ExtResource("2_5ae06")]
 position = Vector2(1, 40)

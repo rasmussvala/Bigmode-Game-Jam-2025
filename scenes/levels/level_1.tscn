@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfxrbngmwot6s"]
+
+[ext_resource type="PackedScene" uid="uid://xi03ediouobe" path="res://scenes/player.tscn" id="1_4c1j8"]
+[ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_5ae06"]
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="3_u3e2s"]
+[ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="4_ipgkl"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4c1j8")]
+collision_mask = 14
+
+[node name="Obstacle1" parent="." instance=ExtResource("2_5ae06")]
+position = Vector2(1, 40)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(1, 40)
+collision_layer = 2
+script = ExtResource("3_u3e2s")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls"]
+polygon = PackedVector2Array(-95, -95, -141, -95, -166, 84, -155, 183, 100, 204, 340, 194, 564, 187, 610, -17, 578, -133, 477, -125, 481, -27, 524, -28, 522, 29, 437, 32, 430, 112, 378, 111, 392, 42, 229, 61, 219, 109, 175, 107, 174, 16, 92, 18, 91, 144, -96, 138)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+
+[node name="Spikes" parent="." instance=ExtResource("4_ipgkl")]
+position = Vector2(-68, 179)
+
+[node name="Spikes2" parent="." instance=ExtResource("4_ipgkl")]
+position = Vector2(-7, 180)
+
+[node name="Spikes3" parent="." instance=ExtResource("4_ipgkl")]
+position = Vector2(52, 182)
+
+[node name="Spikes4" parent="." instance=ExtResource("4_ipgkl")]
+position = Vector2(92, 183)

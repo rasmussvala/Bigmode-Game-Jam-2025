@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://crgspndduh0ge"]
+
+[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_1fhhb"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="1_b86o1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlruh"]
+size = Vector2(61, 28)
+
+[node name="Spikes" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_1fhhb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-1, -70)
+polygon = PackedVector2Array(-29, 61, -25, 51, -19, 62, -15, 50, -9, 61, -3, 51, 3, 61, 11, 50, 18, 63, 25, 50, 32, 64, 32, 76, -29, 76)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Killzone" parent="." instance=ExtResource("1_b86o1")]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0.5, -8)
+shape = SubResource("RectangleShape2D_vlruh")
+debug_color = Color(1, 0, 0.156863, 0.196078)

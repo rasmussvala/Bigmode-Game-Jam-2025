@@ -1,21 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bly0mnguraowr"]
+[gd_scene load_steps=7 format=3 uid="uid://bx2wrphdy35jy"]
 
 [ext_resource type="Script" path="res://scripts/next_level.gd" id="1_5p4jc"]
+[ext_resource type="Texture2D" uid="uid://ca5wetaorf3vv" path="res://assets/portal.png" id="2_3d4wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rvgg"]
+size = Vector2(12, 28)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bxe0d"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-5, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 15.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 2.69
+
+[sub_resource type="Gradient" id="Gradient_1ouc3"]
+colors = PackedColorArray(0.965754, 0.813195, 0.474499, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rm8yc"]
+gradient = SubResource("Gradient_1ouc3")
+width = 1
+height = 1
 
 [node name="NextLevel" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_5p4jc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(1, 0.41732, 0.0412157, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_2rvgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.625001, -4.5)
+scale = Vector2(0.0708333, 0.0708334)
+texture = ExtResource("2_3d4wh")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(1, -4)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_bxe0d")
+texture = SubResource("GradientTexture2D_rm8yc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

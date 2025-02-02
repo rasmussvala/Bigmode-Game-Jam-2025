@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cb3vh0dhrgdyp"]
+[gd_scene load_steps=15 format=3 uid="uid://cb3vh0dhrgdyp"]
 
 [ext_resource type="Texture2D" uid="uid://lg878v1ssw5j" path="res://assets/lamp.png" id="1_jt00b"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_yadf0"]
 [ext_resource type="Script" path="res://scripts/common/components/HealthComponent.gd" id="2_aaf7l"]
 [ext_resource type="Script" path="res://scripts/common/components/hurtbox.gd" id="3_i3m8j"]
+[ext_resource type="Texture2D" uid="uid://cgrjtsgm5hkr1" path="res://assets/light.png" id="5_wn7yp"]
+[ext_resource type="Script" path="res://scripts/health_indicator.gd" id="6_7xufo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8vyv"]
 size = Vector2(4, 12)
@@ -453,11 +455,6 @@ auto_calculate_length_and_angle = false
 length = 1.0
 bone_angle = 0.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 160)
-scale = Vector2(40, 40)
-zoom = Vector2(3.2, 3.2)
-
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_aaf7l")
 
@@ -476,3 +473,23 @@ debug_color = Color(0.807843, 0, 0.109804, 0.764706)
 libraries = {
 "": SubResource("AnimationLibrary_6vwmr")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.95, 0.943508, 0.5605, 1)
+energy = 1.5
+blend_mode = 2
+shadow_enabled = true
+shadow_filter_smooth = 14.0
+texture = ExtResource("5_wn7yp")
+texture_scale = 17.99
+script = ExtResource("6_7xufo")
+energy_modifier = 1.8
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 160)
+scale = Vector2(40, 40)
+zoom = Vector2(3.2, 3.2)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+scale = Vector2(1, 1)
+color = Color(0, 0, 0, 1)

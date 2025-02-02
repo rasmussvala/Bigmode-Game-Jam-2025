@@ -1,11 +1,11 @@
 extends Node
 class_name HealthComponent
 
-@export var max_health: int = 100:
+@export var max_health: float = 100:
 	set(value):
 		max_health = value
 		max_health_changed.emit(max_health)
-@export var current_health: int = 100
+@export var current_health: float = 100
 
 var can_take_damage := true
 
@@ -14,7 +14,7 @@ signal max_health_changed(max_health)
 signal died
 
 
-func damage(amount: int) -> void:
+func damage(amount: float) -> void:
 	current_health -= amount
 	if can_take_damage and current_health <= 0:
 		can_take_damage = false
@@ -23,7 +23,7 @@ func damage(amount: int) -> void:
 	health_changed.emit(-amount)
 
 
-func heal(amount: int) -> void:
+func heal(amount: float) -> void:
 	if current_health >= max_health:
 		return
 	print("current_health ", current_health)
@@ -35,7 +35,7 @@ func heal(amount: int) -> void:
 	health_changed.emit(amount)
 
 
-func set_health(amount: int) -> void:
+func set_health(amount: float) -> void:
 	current_health = min(amount, max_health)
 	current_health = max(current_health, 0)
 

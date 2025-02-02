@@ -7,8 +7,7 @@ func _ready() -> void:
 	init_buttons()
 	
 func start_game() -> void:
-	print("Start game")
-	# @TODO Add next scene/start animation
+	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
 
 func exit_game() -> void:
 	get_tree().quit()

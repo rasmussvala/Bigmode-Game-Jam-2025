@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="1_5lp04"]
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_6qyqw"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_67npy"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_j4gmt"]
-[ext_resource type="PackedScene" uid="uid://b87kmnv75a2bp" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="4_vey2s"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_j4gmt"]
+[ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="4_vey2s"]
 [ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="5_ahud0"]
-[ext_resource type="PackedScene" uid="uid://d2mqmhxoh6mo5" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="5_m8af0"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="5_m8af0"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="5_ohx8t"]
 [ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="9_88lsh"]
 [ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="10_j2r3t"]
@@ -164,4 +164,4 @@ shape = SubResource("WorldBoundaryShape2D_uyx4i")
 position = Vector2(303, 537)
 
 [node name="Battery2" parent="." instance=ExtResource("11_xf2a2")]
-position = Vector2(869, 437)
+position = Vector2(870, 447)

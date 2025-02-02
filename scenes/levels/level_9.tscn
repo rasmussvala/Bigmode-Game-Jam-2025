@@ -87,14 +87,8 @@ rotation = 3.14159
 
 [node name="Batteries" type="Node" parent="."]
 
-[node name="Battery" parent="Batteries" instance=ExtResource("11_lktj7")]
-position = Vector2(144, -64)
-
 [node name="Battery2" parent="Batteries" instance=ExtResource("11_lktj7")]
 position = Vector2(155, -177)
-
-[node name="Battery3" parent="Batteries" instance=ExtResource("11_lktj7")]
-position = Vector2(406, -171)
 
 [node name="Battery4" parent="Batteries" instance=ExtResource("11_lktj7")]
 position = Vector2(495, -69)

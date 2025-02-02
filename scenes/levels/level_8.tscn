@@ -69,14 +69,8 @@ position = Vector2(960, -3)
 
 [node name="Batteries" type="Node" parent="."]
 
-[node name="Battery" parent="Batteries" instance=ExtResource("8_f2uel")]
-position = Vector2(207, 7)
-
 [node name="Battery2" parent="Batteries" instance=ExtResource("8_f2uel")]
 position = Vector2(387, 3)
 
 [node name="Battery3" parent="Batteries" instance=ExtResource("8_f2uel")]
 position = Vector2(673, -1)
-
-[node name="Battery5" parent="Batteries" instance=ExtResource("8_f2uel")]
-position = Vector2(988, -2)

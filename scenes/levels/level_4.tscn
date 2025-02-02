@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_swuuy"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_r8xt2"]
 [ext_resource type="PackedScene" uid="uid://xn6csgl1f1d5" path="res://scenes/power_ups/dodge_refresh.tscn" id="3_5hfjj"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_dmgj8"]
-[ext_resource type="PackedScene" uid="uid://b87kmnv75a2bp" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="5_o7ndr"]
-[ext_resource type="PackedScene" uid="uid://d2mqmhxoh6mo5" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="6_2oa1y"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_dmgj8"]
+[ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="5_o7ndr"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="6_2oa1y"]
 [ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="8_eqpdi"]
 [ext_resource type="PackedScene" uid="uid://dn0ei1k2o86ao" path="res://scenes/power_ups/battery.tscn" id="9_ay4ln"]
 
@@ -60,4 +60,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Battery" parent="." instance=ExtResource("9_ay4ln")]
-position = Vector2(440, 74)
+position = Vector2(412, 43)

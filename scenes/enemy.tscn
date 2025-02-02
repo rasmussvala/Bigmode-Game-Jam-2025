@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bxvcrq5ci7ivx" path="res://assets/enemy.png" id="2_qoaiq"]
 [ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="3_i44bv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bl2n1"]
-size = Vector2(155, 114)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np4lp"]
-size = Vector2(170, 90)
+size = Vector2(150, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bl2n1"]
+size = Vector2(20, 10)
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -16,23 +16,24 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_haa7n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12.5, -6.99999)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_bl2n1")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(7.5, -38)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, -50)
 scale = Vector2(0.536111, 0.536111)
 texture = ExtResource("2_qoaiq")
 
-[node name="Killzone" parent="CollisionShape2D" instance=ExtResource("3_i44bv")]
-position = Vector2(-12.5, 1.99999)
+[node name="Killzone" parent="." instance=ExtResource("3_i44bv")]
+position = Vector2(-5, 32)
+scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Killzone"]
-position = Vector2(15, -25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(20, -34.5)
 shape = SubResource("RectangleShape2D_np4lp")
 debug_color = Color(0.984314, 0, 0, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 45)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_bl2n1")
 
 [node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(92.09, 0)

@@ -70,6 +70,3 @@ position = Vector2(76, -469)
 
 [node name="Battery2" parent="." instance=ExtResource("10_5axtu")]
 position = Vector2(12, -258)
-
-[node name="Battery3" parent="." instance=ExtResource("10_5axtu")]
-position = Vector2(16, -470)

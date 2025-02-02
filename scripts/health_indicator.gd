@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_hp_changed(health : int):
 	energy = (float(hc.current_health) / hc.max_health) * energy_modifier
-	if energy < -0.2:
+	if energy < 0.0:
 		reload_scene()
 
 func reload_scene() -> void:

@@ -475,7 +475,6 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.95, 0.943508, 0.5605, 1)
 energy = 1.5
 blend_mode = 2
 shadow_enabled = true
@@ -491,5 +490,4 @@ scale = Vector2(40, 40)
 zoom = Vector2(3.2, 3.2)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-scale = Vector2(1, 1)
 color = Color(0, 0, 0, 1)

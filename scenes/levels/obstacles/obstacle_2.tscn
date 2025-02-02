@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2mqmhxoh6mo5"]
+[gd_scene load_steps=2 format=3 uid="uid://gy3f1dqjsiki"]
 
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_smypb"]
 
@@ -8,6 +8,7 @@ script = ExtResource("1_smypb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(1, 5)
+color = Color(0.0509804, 0.12549, 0.243137, 1)
 polygon = PackedVector2Array(-40, -14, -48, 15, 38, 17, 29, 3, 61, -21)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

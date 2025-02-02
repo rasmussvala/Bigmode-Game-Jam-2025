@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfxrbngmwot6s"]
+[gd_scene load_steps=6 format=3 uid="uid://dfxrbngmwot6s"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_ubl5h"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_5ae06"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="3_u3e2s"]
 [ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="4_ipgkl"]
+[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="4_l0tdr"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ubl5h")]
+
+[node name="NextLevel" parent="." instance=ExtResource("4_l0tdr")]
+position = Vector2(490, 42)
 
 [node name="Obstacle1" parent="." instance=ExtResource("2_5ae06")]
 position = Vector2(1, 40)
@@ -18,26 +22,26 @@ collision_layer = 2
 script = ExtResource("3_u3e2s")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls"]
-polygon = PackedVector2Array(-95, -95, -141, -95, -166, 84, -155, 183, 100, 204, 340, 194, 564, 187, 610, -17, 578, -133, 477, -125, 481, -27, 524, -28, 522, 29, 437, 32, 430, 112, 378, 111, 392, 42, 229, 61, 219, 109, 175, 107, 174, 16, 92, 18, 91, 144, -96, 138)
+polygon = PackedVector2Array(-99, -169, -288, -179, -283, 108, -160, 331, 172, 366, 488, 360, 737, 206, 711, -61, 578, -133, 477, -125, 481, -27, 524, -28, 522, 29, 437, 32, 430, 112, 378, 111, 392, 42, 229, 61, 219, 109, 175, 107, 174, 16, 92, 18, 90, 100, -97, 96)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 
 [node name="Spikes" type="Node" parent="."]
 
 [node name="Spikes1" parent="Spikes" instance=ExtResource("4_ipgkl")]
-position = Vector2(-68, 179)
+position = Vector2(-84, 136)
 
 [node name="Spikes2" parent="Spikes" instance=ExtResource("4_ipgkl")]
-position = Vector2(-7, 180)
+position = Vector2(-33, 136)
 
 [node name="Spikes3" parent="Spikes" instance=ExtResource("4_ipgkl")]
-position = Vector2(52, 182)
+position = Vector2(17, 135)
 
 [node name="Spikes4" parent="Spikes" instance=ExtResource("4_ipgkl")]
-position = Vector2(92, 183)
+position = Vector2(67, 136)
 
 [node name="Spikes5" parent="Spikes" instance=ExtResource("4_ipgkl")]
 position = Vector2(201, 151)
 
 [node name="Spikes6" parent="Spikes" instance=ExtResource("4_ipgkl")]
-position = Vector2(407, 150)
+position = Vector2(409, 150)

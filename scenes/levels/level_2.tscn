@@ -42,12 +42,12 @@ position = Vector2(826, -68)
 [node name="NextLevel" parent="." instance=ExtResource("3_kma42")]
 position = Vector2(867, -102)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="."]
 script = ExtResource("3_i02d2")
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Walls"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 
 [node name="Killzone" parent="." instance=ExtResource("8_q5qec")]
 

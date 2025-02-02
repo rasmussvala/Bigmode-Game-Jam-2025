@@ -69,6 +69,7 @@ polygon = PackedVector2Array(-373, 139, 103, 253, 222, 232, 266, 153, 347, 106, 
 
 [node name="Player" parent="." instance=ExtResource("1_ujfov")]
 position = Vector2(-16, 2)
+time_to_live = 5.0
 
 [node name="NextLevel" parent="." instance=ExtResource("3_1480t")]
 position = Vector2(-12, -11)

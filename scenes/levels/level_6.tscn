@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0soq68xqa7ii"]
+[gd_scene load_steps=11 format=3 uid="uid://c0soq68xqa7ii"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_ggvs1"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_lmjfv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="6_00li6"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="6_680ya"]
 [ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="7_56lru"]
+[ext_resource type="PackedScene" uid="uid://dn0ei1k2o86ao" path="res://scenes/power_ups/battery.tscn" id="9_wos1r"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n323r"]
 
@@ -15,10 +16,10 @@
 
 [node name="Background" parent="." instance=ExtResource("6_00li6")]
 position = Vector2(-258, -221)
-scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("1_ggvs1")]
 position = Vector2(-16, 2)
+time_to_live = 5.0
 
 [node name="NextLevel" parent="." instance=ExtResource("3_wxqcv")]
 position = Vector2(692, 52)
@@ -68,3 +69,11 @@ position = Vector2(126, 111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_n323r")
+
+[node name="Batteries" type="Node" parent="."]
+
+[node name="Battery" parent="Batteries" instance=ExtResource("9_wos1r")]
+position = Vector2(271, 11)
+
+[node name="Battery2" parent="Batteries" instance=ExtResource("9_wos1r")]
+position = Vector2(347, 12)

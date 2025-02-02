@@ -12,6 +12,8 @@ class_name Player
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var jump_power = 300
 
+@export var time_to_live : float = 20 
+
 @onready var animated_sprite := $animationPlayer
 @onready var camera := $Camera2D
 @onready var hurtbox := $Hurtbox
@@ -51,8 +53,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
+	_health_tick_down(delta)
 	if can_move:
 		move_player(delta)
+
+func _health_tick_down(delta):
+	var damage_per_second = health_component.max_health / time_to_live
+	health_component.damage(damage_per_second * delta)
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)

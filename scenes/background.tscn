@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bpskicg0fvhk2"]
+
+[node name="Background" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Back" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Back"]
+position = Vector2(45, -101)
+scale = Vector2(2.84144, 1.31212)
+color = Color(0.8536, 0.89822, 0.97, 1)
+polygon = PackedVector2Array(-76, 5, -68, 787, 1425, 773, 1402, -30)
+
+[node name="Middle" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 1)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Middle"]
+position = Vector2(1130, 450)
+rotation = 3.14159
+scale = Vector2(0.834646, 0.728814)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-221.651, 115.256, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1591.09, 160.535, 1594.69, -577.651, -262.387, -603.721)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Middle"]
+position = Vector2(2501, 468)
+rotation = 3.14159
+scale = Vector2(0.834646, 0.728814)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-221.651, 115.256, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1440.13, 146.814, 1453.31, -477.488, -256.396, -514.535)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Middle"]
+position = Vector2(3720, 433)
+rotation = 3.14159
+scale = Vector2(0.834646, 0.728814)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-432.519, 164.651, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1440.13, 146.814, 1470.09, -598.233, -458.877, -624.302)
+
+[node name="Front" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Front"]
+position = Vector2(1290, 774)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(2, 131, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1570, 117, 1516, -380, -125, -367)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Front"]
+position = Vector2(2614, 758)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(2, 131, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1281, 127, 1407, -361, -118, -333)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Front"]
+position = Vector2(3809, 742)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(-373, 139, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1281, 127, 1350, -336, -294, -330)

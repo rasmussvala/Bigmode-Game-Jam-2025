@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfxrbngmwot6s"]
+[gd_scene load_steps=7 format=3 uid="uid://dfxrbngmwot6s"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_ubl5h"]
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="1_vjhwf"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_5ae06"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="3_u3e2s"]
 [ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="4_ipgkl"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="4_l0tdr"]
+[ext_resource type="PackedScene" path="res://scenes/next_level.tscn" id="4_l0tdr"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_vjhwf")]
+position = Vector2(-243, -242)
 
 [node name="Player" parent="." instance=ExtResource("1_ubl5h")]
 
@@ -22,6 +26,7 @@ collision_layer = 2
 script = ExtResource("3_u3e2s")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls"]
+color = Color(0.0509804, 0.12549, 0.243137, 1)
 polygon = PackedVector2Array(-99, -169, -288, -179, -283, 108, -160, 331, 172, 366, 488, 360, 737, 206, 711, -61, 578, -133, 477, -125, 481, -27, 524, -28, 522, 29, 437, 32, 430, 112, 378, 111, 392, 42, 229, 61, 219, 109, 175, 107, 174, 16, 92, 18, 90, 100, -97, 96)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]

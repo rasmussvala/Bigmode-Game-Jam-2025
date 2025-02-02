@@ -10,7 +10,7 @@ scroll_scale = Vector2(0.1, 1)
 position = Vector2(45, -101)
 scale = Vector2(2.84144, 1.31212)
 color = Color(0.8536, 0.89822, 0.97, 1)
-polygon = PackedVector2Array(-76, 5, -68, 787, 1425, 773, 1402, -30)
+polygon = PackedVector2Array(-74.2581, -692.772, -68, 787, 1425, 773, 1429.2, -672.957)
 
 [node name="Middle" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.3, 1)

@@ -84,6 +84,7 @@ vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("1_agju1")]
 position = Vector2(4, 21)
+time_to_live = 1e+08
 
 [node name="Obstacle2" parent="." instance=ExtResource("2_hqh7n")]
 position = Vector2(0, 56)

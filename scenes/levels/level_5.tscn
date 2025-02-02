@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjhw2s6gdcqhl"]
+[gd_scene load_steps=12 format=3 uid="uid://bjhw2s6gdcqhl"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_loqov"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_0cjdl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="6_utk3c"]
 [ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="7_euvwr"]
 [ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="8_27hb3"]
+[ext_resource type="PackedScene" uid="uid://dn0ei1k2o86ao" path="res://scenes/power_ups/battery.tscn" id="10_5axtu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d8hkg"]
 
@@ -19,12 +20,13 @@ position = Vector2(-356, -331)
 
 [node name="Player" parent="." instance=ExtResource("1_loqov")]
 position = Vector2(-16, 2)
+time_to_live = 5.0
+
+[node name="Enemy" parent="." instance=ExtResource("4_tcei4")]
+position = Vector2(300, -469)
 
 [node name="NextLevel" parent="." instance=ExtResource("3_nys1x")]
 position = Vector2(346, -472)
-
-[node name="Enemy" parent="NextLevel" instance=ExtResource("4_tcei4")]
-position = Vector2(-240, 1)
 
 [node name="Killzone" parent="." instance=ExtResource("8_27hb3")]
 
@@ -62,3 +64,12 @@ position = Vector2(103, -438)
 
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource("6_utk3c")]
 position = Vector2(294, -439)
+
+[node name="Battery" parent="." instance=ExtResource("10_5axtu")]
+position = Vector2(76, -469)
+
+[node name="Battery2" parent="." instance=ExtResource("10_5axtu")]
+position = Vector2(12, -258)
+
+[node name="Battery3" parent="." instance=ExtResource("10_5axtu")]
+position = Vector2(16, -470)

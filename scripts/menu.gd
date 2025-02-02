@@ -1,7 +1,7 @@
 extends Control
 
-@onready var start_button: Button = $ContentMargin/ButtonsContainer/StartButton
-@onready var exit_button: Button = $ContentMargin/ButtonsContainer/ExitButton
+@onready var start_button: Button = $ButtonsContainer/StartButton
+@onready var exit_button: Button = $ButtonsContainer/ExitButton
 
 func _ready() -> void:
 	init_buttons()

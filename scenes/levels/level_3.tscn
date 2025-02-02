@@ -1,16 +1,159 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwfp43lmvye2k"]
+[gd_scene load_steps=12 format=3 uid="uid://y27efchsxnhu"]
 
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="1_5lp04"]
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_6qyqw"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_67npy"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_j4gmt"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_j4gmt"]
+[ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="4_vey2s"]
+[ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="5_ahud0"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="5_m8af0"]
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="5_ohx8t"]
+[ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="9_88lsh"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="10_j2r3t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uyx4i"]
 
 [node name="Level3" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_5lp04")]
+position = Vector2(-498, 284)
 
 [node name="Player" parent="." instance=ExtResource("1_6qyqw")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_67npy")]
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("2_67npy")]
 position = Vector2(1, 40)
 
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("4_vey2s")]
+position = Vector2(135, 590)
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource("4_vey2s")]
+position = Vector2(743, 486)
+
+[node name="Obstacle8" parent="Obstacles" instance=ExtResource("4_vey2s")]
+position = Vector2(1062, 481)
+
+[node name="Obstacle7" parent="Obstacles" instance=ExtResource("4_vey2s")]
+position = Vector2(873, 527)
+rotation = -1.51844
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("2_67npy")]
+position = Vector2(292, 595)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("5_m8af0")]
+position = Vector2(449, 598)
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource("5_m8af0")]
+position = Vector2(613, 538)
+rotation = 3.14159
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+script = ExtResource("5_ohx8t")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall1"]
+color = Color(0.0509804, 0.12549, 0.243137, 1)
+polygon = PackedVector2Array(111, 65, 112, 591, 38, 598, 53, 117, 76, 100, 79, 59)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall1"]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Walls"]
+position = Vector2(166, -145)
+scale = Vector2(0.972973, 1)
+color = Color(0.0509804, 0.12549, 0.243137, 1)
+polygon = PackedVector2Array(100.694, 90, 112, 591, 38, 598, 37, 127, 22.6111, 98, 12.3333, 60, 17.4722, 32, 67.8333, 35)
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spikes" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(104, 101)
+rotation = 1.5708
+
+[node name="Spikes2" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(104, 160)
+rotation = 1.5708
+
+[node name="Spikes3" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(104, 218)
+rotation = 1.5708
+
+[node name="Spikes4" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(104, 277)
+rotation = 1.5708
+
+[node name="Spikes5" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(105, 336)
+rotation = 1.5708
+
+[node name="Spikes6" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(106, 395)
+rotation = 1.5708
+
+[node name="Spikes7" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(106, 455)
+rotation = 1.5708
+
+[node name="Spikes10" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(197, 69)
+rotation = -1.5708
+
+[node name="Spikes17" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(202, 16)
+rotation = -1.5708
+
+[node name="Spikes18" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(205, -34)
+rotation = -1.5708
+
+[node name="Spikes11" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(197, 128)
+rotation = -1.5708
+
+[node name="Spikes12" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(197, 186)
+rotation = -1.5708
+
+[node name="Spikes13" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(197, 245)
+rotation = -1.5708
+
+[node name="Spikes14" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(198, 304)
+rotation = -1.5708
+
+[node name="Spikes15" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(199, 363)
+rotation = -1.5708
+
+[node name="Spikes16" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(198, 423)
+rotation = -1.5708
+
+[node name="Spikes8" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(106, 514)
+rotation = 1.5708
+
+[node name="Spikes9" parent="Spikes" instance=ExtResource("5_ahud0")]
+position = Vector2(106, 554)
+rotation = 1.5708
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("9_88lsh")]
+position = Vector2(268, 564)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("9_88lsh")]
+position = Vector2(491, 567)
+
 [node name="NextLevel" parent="." instance=ExtResource("3_j4gmt")]
-position = Vector2(44, 1)
+position = Vector2(1116, 449)
+
+[node name="Killzone" parent="." instance=ExtResource("10_j2r3t")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(290, 644)
+shape = SubResource("WorldBoundaryShape2D_uyx4i")

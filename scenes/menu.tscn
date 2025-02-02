@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://beclup4fvlrwn"]
+[gd_scene load_steps=3 format=3 uid="uid://beclup4fvlrwn"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_vpnfb"]
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="2_qpoiy"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,29 +14,31 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_vpnfb")
 
-[node name="ContentMargin" type="MarginContainer" parent="."]
+[node name="Background" parent="." instance=ExtResource("2_qpoiy")]
+position = Vector2(-85, 189)
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -47.0
+offset_right = 128.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 128
-theme_override_constants/margin_top = 128
-theme_override_constants/margin_right = 128
-theme_override_constants/margin_bottom = 128
-
-[node name="ButtonsContainer" type="VBoxContainer" parent="ContentMargin"]
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 32
 
-[node name="StartButton" type="Button" parent="ContentMargin/ButtonsContainer"]
+[node name="StartButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = " Start "
 
-[node name="ExitButton" type="Button" parent="ContentMargin/ButtonsContainer"]
+[node name="ExitButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = " Exit "

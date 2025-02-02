@@ -1,17 +1,72 @@
-[gd_scene format=3 uid="uid://xp24pxqgmf3a"]
+[gd_scene load_steps=5 format=3 uid="uid://c5tc6jr21ov80"]
 
-[node name="End" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_agju1"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="2_hqh7n"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="3_fpaoj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qdxfq"]
+
+[node name="End" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(-700, -200)
+scale = Vector2(0.5, 0.5)
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background/Back"]
+position = Vector2(-6.79, 0)
+scale = Vector2(2.84144, 1.31212)
+color = Color(0.8536, 0.89822, 0.97, 1)
+polygon = PackedVector2Array(-74.2581, -692.772, -68, 787, 1425, 773, 1429.2, -672.957)
+
+[node name="Middle" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.3, 1)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Background/Middle"]
+position = Vector2(1150, 358)
+rotation = 3.14159
+scale = Vector2(0.834646, 0.728814)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-221.651, 115.256, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1591.09, 160.535, 1594.69, -577.651, -262.387, -603.721)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Background/Middle"]
+position = Vector2(2498, 382)
+rotation = 3.14159
+scale = Vector2(0.834646, 0.728814)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-221.651, 115.256, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1440.13, 146.814, 1453.31, -477.488, -256.396, -514.535)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Background/Middle"]
+position = Vector2(3720, 433)
+rotation = 3.14159
+scale = Vector2(0.834646, 0.728814)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-432.519, 164.651, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1440.13, 146.814, 1470.09, -598.233, -458.877, -624.302)
+
+[node name="Front" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Background/Front"]
+position = Vector2(1290, 774)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(-95.9998, 110, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1570, 117, 1534, -594.004, -186.002, -668)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Background/Front"]
+position = Vector2(2614, 758)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(2, 131, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1281, 127, 1260, -706.003, -614.002, -701.998)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Background/Front"]
+position = Vector2(3809, 742)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(-373, 139, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1281, 127, 648.998, -730.002, -294, -330)
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -26,3 +81,15 @@ grow_vertical = 2
 text = "Thank you for playing!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("1_agju1")]
+position = Vector2(4, 21)
+
+[node name="Obstacle2" parent="." instance=ExtResource("2_hqh7n")]
+position = Vector2(0, 56)
+
+[node name="Killzone" parent="." instance=ExtResource("3_fpaoj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(5, 88)
+shape = SubResource("WorldBoundaryShape2D_qdxfq")

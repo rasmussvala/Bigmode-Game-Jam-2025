@@ -1,16 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdkb68g6yaw53"]
+[gd_scene load_steps=10 format=3 uid="uid://bgwj8cbomcnbo"]
 
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="1_dx2km"]
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_swuuy"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_r8xt2"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_dmgj8"]
+[ext_resource type="PackedScene" uid="uid://xn6csgl1f1d5" path="res://scenes/power_ups/dodge_refresh.tscn" id="3_5hfjj"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_dmgj8"]
+[ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="5_o7ndr"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="6_2oa1y"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="8_eqpdi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bitlh"]
 
 [node name="Level4" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_dx2km")]
+position = Vector2(-293, -246)
 
 [node name="Player" parent="." instance=ExtResource("1_swuuy")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_r8xt2")]
+[node name="DodgeRefreshes" type="Node" parent="."]
+
+[node name="DodgeRefresh" parent="DodgeRefreshes" instance=ExtResource("3_5hfjj")]
+position = Vector2(219, 23)
+
+[node name="DodgeRefresh2" parent="DodgeRefreshes" instance=ExtResource("3_5hfjj")]
+position = Vector2(564, 41)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("2_r8xt2")]
 position = Vector2(1, 40)
 
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("5_o7ndr")]
+position = Vector2(360, 76)
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("6_2oa1y")]
+position = Vector2(741, 120)
+
 [node name="NextLevel" parent="." instance=ExtResource("3_dmgj8")]
-position = Vector2(44, 1)
+position = Vector2(792, 86)
+
+[node name="Killzone" parent="." instance=ExtResource("8_eqpdi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(212, 132)
+shape = SubResource("WorldBoundaryShape2D_bitlh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 31.0
+offset_top = -35.0
+offset_right = 184.0
+offset_bottom = 14.0
+text = "Grab Lighting to get 
+another dash"
+horizontal_alignment = 1
+vertical_alignment = 1

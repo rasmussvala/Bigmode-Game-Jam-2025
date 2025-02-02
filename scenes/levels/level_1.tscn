@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_5ae06"]
 [ext_resource type="Script" path="res://scripts/obstacle.gd" id="3_u3e2s"]
 [ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="4_ipgkl"]
-[ext_resource type="PackedScene" path="res://scenes/next_level.tscn" id="4_l0tdr"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="4_l0tdr"]
 
 [node name="Level1" type="Node2D"]
 
@@ -15,7 +15,7 @@ position = Vector2(-243, -242)
 [node name="Player" parent="." instance=ExtResource("1_ubl5h")]
 
 [node name="NextLevel" parent="." instance=ExtResource("4_l0tdr")]
-position = Vector2(490, 42)
+position = Vector2(491, 58)
 
 [node name="Obstacle1" parent="." instance=ExtResource("2_5ae06")]
 position = Vector2(1, 40)

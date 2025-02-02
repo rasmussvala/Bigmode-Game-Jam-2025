@@ -1,16 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://crvp28lxkhper"]
+[gd_scene load_steps=11 format=3 uid="uid://bjhw2s6gdcqhl"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_loqov"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_0cjdl"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_nys1x"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_nys1x"]
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="4_qc4uw"]
+[ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="4_tcei4"]
+[ext_resource type="PackedScene" uid="uid://xn6csgl1f1d5" path="res://scenes/power_ups/dodge_refresh.tscn" id="5_ft0tb"]
+[ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="6_utk3c"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="7_euvwr"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="8_27hb3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d8hkg"]
 
 [node name="Level5" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("4_qc4uw")]
+position = Vector2(-356, -331)
 
 [node name="Player" parent="." instance=ExtResource("1_loqov")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_0cjdl")]
+[node name="NextLevel" parent="." instance=ExtResource("3_nys1x")]
+position = Vector2(346, -472)
+
+[node name="Enemy" parent="NextLevel" instance=ExtResource("4_tcei4")]
+position = Vector2(-240, 1)
+
+[node name="Killzone" parent="." instance=ExtResource("8_27hb3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(90, 68)
+shape = SubResource("WorldBoundaryShape2D_d8hkg")
+
+[node name="Dodgerefreshes" type="Node" parent="."]
+
+[node name="DodgeRefresh" parent="Dodgerefreshes" instance=ExtResource("5_ft0tb")]
+position = Vector2(11, -85)
+
+[node name="DodgeRefresh2" parent="Dodgerefreshes" instance=ExtResource("5_ft0tb")]
+position = Vector2(12, -155)
+
+[node name="DodgeRefresh3" parent="Dodgerefreshes" instance=ExtResource("5_ft0tb")]
+position = Vector2(12, -222)
+
+[node name="DodgeRefresh4" parent="Dodgerefreshes" instance=ExtResource("5_ft0tb")]
+position = Vector2(13, -293)
+
+[node name="DodgeRefresh5" parent="Dodgerefreshes" instance=ExtResource("5_ft0tb")]
+position = Vector2(15, -365)
+
+[node name="DodgeRefresh6" parent="Dodgerefreshes" instance=ExtResource("5_ft0tb")]
+position = Vector2(17, -438)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("2_0cjdl")]
 position = Vector2(1, 40)
 
-[node name="NextLevel" parent="." instance=ExtResource("3_nys1x")]
-position = Vector2(44, 1)
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("7_euvwr")]
+position = Vector2(103, -438)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("6_utk3c")]
+position = Vector2(294, -439)

@@ -1,16 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg3yqvjnr44uh"]
+[gd_scene load_steps=9 format=3 uid="uid://jtwkcloqua78"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_2dkkw"]
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="1_qmo06"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_skm1k"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_3bj5a"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_3bj5a"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="3_40dn6"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="6_cpkkv"]
+[ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="7_oyvf6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ebdq7"]
 
 [node name="Level8" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_qmo06")]
+position = Vector2(-216, -318)
 
 [node name="Player" parent="." instance=ExtResource("1_2dkkw")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_skm1k")]
+[node name="NextLevel" parent="." instance=ExtResource("3_3bj5a")]
+position = Vector2(1581, -1)
+
+[node name="Killzone" parent="." instance=ExtResource("3_40dn6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(73, 63)
+shape = SubResource("WorldBoundaryShape2D_ebdq7")
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("2_skm1k")]
 position = Vector2(1, 40)
 
-[node name="NextLevel" parent="." instance=ExtResource("3_3bj5a")]
-position = Vector2(44, 1)
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("6_cpkkv")]
+position = Vector2(240, 39)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("2_skm1k")]
+position = Vector2(473, 38)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("6_cpkkv")]
+position = Vector2(712, 37)
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource("2_skm1k")]
+position = Vector2(835, 36)
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource("6_cpkkv")]
+position = Vector2(1074, 35)
+
+[node name="Obstacle7" parent="Obstacles" instance=ExtResource("2_skm1k")]
+position = Vector2(1307, 34)
+
+[node name="Obstacle8" parent="Obstacles" instance=ExtResource("6_cpkkv")]
+position = Vector2(1546, 33)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_oyvf6")]
+position = Vector2(254, 4)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_oyvf6")]
+position = Vector2(708, 1)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("7_oyvf6")]
+position = Vector2(1292, -1)

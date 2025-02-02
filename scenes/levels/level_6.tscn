@@ -1,16 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp60euqhghojs"]
+[gd_scene load_steps=10 format=3 uid="uid://c0soq68xqa7ii"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_ggvs1"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_lmjfv"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_wxqcv"]
+[ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="3_3jgdd"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_wxqcv"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="4_5esv7"]
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="6_00li6"]
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="6_680ya"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="7_56lru"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n323r"]
 
 [node name="Level6" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("6_00li6")]
+position = Vector2(-258, -221)
+scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("1_ggvs1")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_lmjfv")]
+[node name="NextLevel" parent="." instance=ExtResource("3_wxqcv")]
+position = Vector2(692, 52)
+rotation = -4.78744
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("2_lmjfv")]
 position = Vector2(1, 40)
 
-[node name="NextLevel" parent="." instance=ExtResource("3_wxqcv")]
-position = Vector2(44, 1)
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("4_5esv7")]
+position = Vector2(503, 45)
+
+[node name="Obstacle2" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(212, 45)
+collision_layer = 2
+script = ExtResource("6_680ya")
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/Obstacle2"]
+color = Color(0.0509804, 0.12549, 0.243137, 1)
+polygon = PackedVector2Array(-31, -22, -32, 21, 42, 30, 151, -20)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle2"]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_3jgdd")]
+position = Vector2(296, 14)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("3_3jgdd")]
+position = Vector2(277, 14)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("3_3jgdd")]
+position = Vector2(259, 14)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("3_3jgdd")]
+position = Vector2(240, 15)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("3_3jgdd")]
+position = Vector2(315, 16)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("3_3jgdd")]
+position = Vector2(334, 18)
+
+[node name="Killzone" parent="." instance=ExtResource("7_56lru")]
+position = Vector2(126, 111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_n323r")

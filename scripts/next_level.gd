@@ -8,7 +8,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	var current_number = current_scene_file.to_int()
 	
 	# last level will trigger end scene
-	if current_number == 10:
+	if current_number == 9:
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 		return
 	

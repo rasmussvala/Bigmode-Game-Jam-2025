@@ -1,16 +1,97 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds7qk8fapu5ef"]
+[gd_scene load_steps=12 format=3 uid="uid://ds7qk8fapu5ef"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_2lj31"]
+[ext_resource type="PackedScene" uid="uid://bpskicg0fvhk2" path="res://scenes/background.tscn" id="2_ohw7o"]
 [ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_v85g6"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_f360c"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_f360c"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="5_4em8s"]
+[ext_resource type="PackedScene" uid="uid://gy3f1dqjsiki" path="res://scenes/levels/obstacles/obstacle_2.tscn" id="6_p1fup"]
+[ext_resource type="PackedScene" uid="uid://buoydlldpdqjf" path="res://scenes/levels/obstacles/obstacle_3.tscn" id="7_4pw1v"]
+[ext_resource type="PackedScene" uid="uid://kitx24ssv88o" path="res://scenes/enemy.tscn" id="8_hxrmc"]
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="8_x4elq"]
+[ext_resource type="PackedScene" uid="uid://crgspndduh0ge" path="res://scenes/levels/obstacles/spikes.tscn" id="10_31db1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3crg8"]
 
 [node name="Level9" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("2_ohw7o")]
+position = Vector2(-242, -258)
+scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("1_2lj31")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_v85g6")]
+[node name="NextLevel" parent="." instance=ExtResource("3_f360c")]
+position = Vector2(760, -70)
+
+[node name="Killzone" parent="." instance=ExtResource("5_4em8s")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(73, 68)
+shape = SubResource("WorldBoundaryShape2D_3crg8")
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Obstacle1" parent="Obstacles" instance=ExtResource("2_v85g6")]
 position = Vector2(1, 40)
 
-[node name="NextLevel" parent="." instance=ExtResource("3_f360c")]
-position = Vector2(44, 1)
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("6_p1fup")]
+position = Vector2(140, -32)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("6_p1fup")]
+position = Vector2(156, -145)
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("7_4pw1v")]
+position = Vector2(-3, -84)
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource("7_4pw1v")]
+position = Vector2(309, -202)
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource("7_4pw1v")]
+position = Vector2(393, -137)
+
+[node name="Obstacle7" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(480, -34)
+collision_layer = 2
+script = ExtResource("8_x4elq")
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/Obstacle7"]
+color = Color(0.0509804, 0.12549, 0.243137, 1)
+polygon = PackedVector2Array(-31, -22, -48, 3, -20, 30, 91, 41, 280, 21, 289, -25)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle7"]
+
+[node name="Obstacle8" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(641, -148)
+collision_layer = 2
+script = ExtResource("8_x4elq")
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/Obstacle8"]
+color = Color(0.0509804, 0.12549, 0.243137, 1)
+polygon = PackedVector2Array(-171, -200, -145, -25, -115, 54, 126, 53, 187, -13, 204, -172)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Obstacle8"]
+
+[node name="Enenies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enenies" instance=ExtResource("8_hxrmc")]
+position = Vector2(572, -67)
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spikes" parent="Spikes" instance=ExtResource("10_31db1")]
+position = Vector2(556, -102)
+rotation = 3.14159
+
+[node name="Spikes2" parent="Spikes" instance=ExtResource("10_31db1")]
+position = Vector2(616, -102)
+rotation = 3.14159
+
+[node name="Spikes3" parent="Spikes" instance=ExtResource("10_31db1")]
+position = Vector2(677, -102)
+rotation = 3.14159
+
+[node name="Spikes4" parent="Spikes" instance=ExtResource("10_31db1")]
+position = Vector2(737, -102)
+rotation = 3.14159

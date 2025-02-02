@@ -1,16 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://jtwkcloqua78"]
+[gd_scene load_steps=5 format=3 uid="uid://bxvuf7pi8a82p"]
 
 [ext_resource type="PackedScene" uid="uid://cb3vh0dhrgdyp" path="res://scenes/player.tscn" id="1_ujfov"]
-[ext_resource type="PackedScene" uid="uid://gr206ync62i2" path="res://scenes/levels/obstacles/obstacle_1.tscn" id="2_81yat"]
-[ext_resource type="PackedScene" uid="uid://bly0mnguraowr" path="res://scenes/next_level.tscn" id="3_1480t"]
+[ext_resource type="PackedScene" uid="uid://bx2wrphdy35jy" path="res://scenes/next_level.tscn" id="3_1480t"]
+[ext_resource type="PackedScene" uid="uid://fuekg0vgkssg" path="res://scenes/killzone.tscn" id="3_s6r3v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gwupm"]
+normal = Vector2(0.016258, -0.999868)
 
 [node name="Level7" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(-700, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background/Back"]
+position = Vector2(45, -101)
+scale = Vector2(2.84144, 1.31212)
+color = Color(0.8536, 0.89822, 0.97, 1)
+polygon = PackedVector2Array(-75.6658, -1368.02, -68, 787, 1425, 773, 1431.32, -1287.23)
+
+[node name="Middle" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.3, 1)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Background/Middle"]
+position = Vector2(1143, 30.3121)
+rotation = 3.14159
+scale = Vector2(0.834646, 1.91823)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-221.651, 115.256, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1591.09, 160.535, 1594.69, -577.651, -262.387, -603.721)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Background/Middle"]
+position = Vector2(2514, 59.6832)
+rotation = 3.14159
+scale = Vector2(0.834646, 1.96317)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-221.651, 115.256, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1440.13, 146.814, 1453.31, -477.488, 624.099, -495.456, -256.396, -514.535)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Background/Middle"]
+position = Vector2(3733, -31.3907)
+rotation = 3.14159
+scale = Vector2(0.834646, 1.74153)
+color = Color(0.270846, 0.452625, 0.747651, 1)
+polygon = PackedVector2Array(-432.519, 164.651, 103, 253, 179.717, 153.674, 266, 153, 347, 106, 497, 149, 531.962, 60.3721, 579, 133, 692.509, 242.86, 809, 106, 917.755, 196.209, 1014.8, 57.6279, 1111, 134, 1192, 203, 1440.13, 146.814, 1470.09, -598.233, -458.877, -624.302)
+
+[node name="Front" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Background/Front"]
+position = Vector2(1290, 774)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(2, 131, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1570, 117, 1566, -1302, -126.003, -1322)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Background/Front"]
+position = Vector2(2614, 758)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(2, 131, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1281, 127, 1396, -1356, -104.003, -1330)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Background/Front"]
+position = Vector2(3809, 742)
+rotation = -3.14159
+color = Color(0.156863, 0.294118, 0.517647, 1)
+polygon = PackedVector2Array(-373, 139, 103, 253, 222, 232, 266, 153, 347, 106, 497, 149, 524, 248, 579, 133, 669, 205, 809, 106, 899, 179, 1014, 105, 1111, 134, 1192, 203, 1281, 127, 1327, -1358, -307.004, -1430)
 
 [node name="Player" parent="." instance=ExtResource("1_ujfov")]
 position = Vector2(-16, 2)
 
-[node name="Obstacle1" parent="." instance=ExtResource("2_81yat")]
-position = Vector2(1, 40)
-
 [node name="NextLevel" parent="." instance=ExtResource("3_1480t")]
-position = Vector2(44, 1)
+position = Vector2(-12, -11)
+rotation = -1.5708
+
+[node name="NextLevel2" parent="." instance=ExtResource("3_1480t")]
+position = Vector2(-23, 1302)
+rotation = 1.5708
+
+[node name="Killzone" parent="." instance=ExtResource("3_s6r3v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-25, 1346)
+shape = SubResource("WorldBoundaryShape2D_gwupm")

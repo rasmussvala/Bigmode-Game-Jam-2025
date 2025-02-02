@@ -7,8 +7,7 @@ collision_layer = 2
 script = ExtResource("1_smypb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(1, 5)
 color = Color(0.0509804, 0.12549, 0.243137, 1)
-polygon = PackedVector2Array(-40, -14, -48, 15, 38, 17, 29, 3, 61, -21)
+polygon = PackedVector2Array(-40, -19, -48, 15, 38, 17, 29, 3, 61, -21)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

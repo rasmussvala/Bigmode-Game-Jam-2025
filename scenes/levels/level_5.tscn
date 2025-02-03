@@ -20,7 +20,6 @@ position = Vector2(-356, -331)
 
 [node name="Player" parent="." instance=ExtResource("1_loqov")]
 position = Vector2(-16, 2)
-time_to_live = 5.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_tcei4")]
 position = Vector2(300, -469)

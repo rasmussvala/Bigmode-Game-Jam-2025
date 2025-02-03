@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var time_to_live : float = 20 
+@export var time_to_live : float = 10
 @export_category("Movement Settings")
 @export var move_speed: float = 100
 @export_subgroup("Dodge")
@@ -92,17 +92,26 @@ func move_player(delta : float) -> void:
 			animated_sprite.play("idleAnimation")  # Play idle animation when no input
 
 func start_dodge() -> void:
-	var dodge_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	if not dodge_dir.is_equal_approx(Vector2.ZERO):
+	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if input_vector != Vector2.ZERO:
+		# Normalize the vector to get a consistent dodge direction.
+		var dodge_dir = input_vector.normalized()
+		# If the player is only pressing left or right (no vertical input),
+		# force the dodge direction to be upward as well.
+		if dodge_dir.x != 0 and dodge_dir.y == 0:
+			dodge_dir = Vector2(dodge_dir.x, -1).normalized()
+
 		can_dodge = false
 		in_dodge = true
 		velocity = dodge_dir * dodge_speed
+		# If dodging upward, add a little extra boost.
 		if velocity.y < 0:
 			velocity.y *= 1.2
 		print(velocity)
-			
+
 		dodge_timer.start()
 		animated_sprite.play("jumpAnimation")
+
 	
 func play_dodge_sound() -> void:
 	var random_number = randi_range(1, 3)

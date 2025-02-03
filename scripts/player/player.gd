@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var time_to_live : float = 20 
+@export var time_to_live : float = 10
 @export_category("Movement Settings")
 @export var move_speed: float = 100
 @export_subgroup("Dodge")

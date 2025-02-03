@@ -19,7 +19,6 @@ position = Vector2(-258, -221)
 
 [node name="Player" parent="." instance=ExtResource("1_ggvs1")]
 position = Vector2(-16, 2)
-time_to_live = 5.0
 
 [node name="NextLevel" parent="." instance=ExtResource("3_wxqcv")]
 position = Vector2(692, 52)
